@@ -1,0 +1,19 @@
+.yellow{
+    background-color: yellow;
+}
+
+.red{
+    background-color: red;
+}
+
+.positive{
+    background-color: green;
+}
+
+.negative{
+    background-color: red;
+}
+
+.neutral{
+    background-color: blue;
+}
