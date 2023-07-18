@@ -1,8 +1,16 @@
+.GoalmapPage{
+    background-color: #ffffff;
+    color: #6459ca;
+    height: 100vh;
+}
+
 .Pagetitle{
     font-size: 60px;
     text-align: center;
 }
 .todays-task{
+
+    position : relative;
     font-size: 40px;
     width: 70%;
 }
@@ -10,17 +18,44 @@
 .daily-task{
 
     font-size:16px;
-    border: solid 1px;
+    border: solid 2px #3f387e;
     border-radius: 5px;
     margin: 10px 10px;
     padding: 10px 10px;
 }
 
+.daily-task-elementsgrid{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    word-wrap: break-word;
+}
+
+.daily-task-buttons{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.daily-task-modify{
+ height: 20px;
+ background-color: #aba2fe;
+ border: 1px solid #3f387e;
+ border-radius: 5px 10px;
+ padding: 5px 15px;
+ letter-spacing: 2px;
+ text-align: center;
+ height: 30px;
+}
+
+.goalmap-checkbox-container{
+    height:20px ;
+    margin-bottom: 10px;
+}
+
 .goalmap-checkbox{
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    margin-left: 60%;
+    position: absolute;
+    padding-left: 30px;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
@@ -43,12 +78,12 @@
         left: 0;
         height: 25px;
         width: 25px;
-        background-color: #eee;
+        background-color:#3f387e;
 
 }
 
 .goalmap-checkbox input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #3f387e;
   }
 
   .checkmark:after {
@@ -78,14 +113,76 @@
     display:none;
 }
 
-.GoalColor{
-    display: block;
-    width: 60%;
-    height: 2px;
-    background-color: #2196F3;
+
+.daily-task-title{
+    font-size: 20px;
+    margin-bottom: 7px;
 }
 
 .task-description{
-    display: inline;
+    max-width: 40vw;
+}
+
+
+.redGoal{
+    display: block;
+    width: 60%;
+    height: 2px;
+    background-color: #fd7e70;
+}
+.greenGoal{
+    display: block;
+    width: 60%;
+    height: 2px;
+    background-color: #70fd7e;
+}
+.yellowGoal{
+    display: block;
+    width: 60%;
+    height: 2px;
+    background-color: #effd70;
+}
+.blueGoal{
+    display: block;
+    width: 60%;
+    height: 2px;
+    background-color: #7e70fd;
+}
+
+.border-greenGoal{
+    border-color:  #70fd7e;
+}
+
+.border-yellowGoal{
+    border-color: #effd70;
+}
+.border-blueGoal{
+    border-color:  #7e70fd;
+}
+.border-redGoal{
+    border-color: #fd7e70;
+}
+
+/*section for the progress bar*/
+
+.progressbar{
+	position: relative;
+    left:30%;
+	overflow: hidden;
+	width: 750px;
+	height: 35px;
+	border-radius: 5px;
+	background-color:#6459ca;
+}
+
+.progressPercent{
+	font-weight: 600;
+	font-family:'Franklin Gothic Medium';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	color: #6459ca;
+	text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
 }
 

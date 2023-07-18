@@ -1,57 +1,124 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import "./Goalmap.css"
+import Goalsetting from './Goalsetting'
 const Goalmap = () => {
 
-    const [dailyss,setdailyss]= useState([true,false,false])
     const [dailys,setdailys]= useState(
-        {
-            "task1":{
-                "checkbox":true,
-                "description":"eat cereals",
-                "GoalColor":"blueGoal"
+        [
+            {
+                checkbox:false,
+                description:"eat cereals",
+                GoalColor:"greenGoal",
+                title:"Be healthy",
+                date:"monday 6/01/2045",
+                priority:1
+            },
+            {
+                checkbox:false,
+                description:"do the dishes",
+                GoalColor:"blueGoal",
+                title:"House shore",
+                date:"monday 6/01/2045",
+                priority:5
+            },
+            {
+                checkbox:false,
+                description:"hail the sunsdfqsdfzxeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeesdqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",
+                GoalColor:"yellowGoal",
+                title:"Devote yourself",
+                date:"monday 6/01/2045",
+                priority:10
+            },
+            {
+                checkbox:false,
+                description:"do a little dance",
+                GoalColor:"redGoal",
+                title:"Exercice",
+                date:"monday 6/01/2045",
+                priority:1
             }
-        }
+        ]
     )
 
+        const [checked,setchecked]=useState([false,false,false,false])
+
+        function handlecheckedChange(e:React.MouseEvent<HTMLDivElement, MouseEvent>,i:number){
+            //e.preventDefault()
+            let newarray=[...checked]
+
+            newarray[i]=!newarray[i]
+            setchecked(newarray)
+            e.currentTarget.toggleAttribute("after")
+        }
     function generatedailys(){
-        Object.keys(dailys).map(item=>(console.log(dailys,"here")))
         return (
-            Object.keys(dailys).map(item=>(
-                <><div className='daily-task'>
-                <div className='task-description'>eat cereals</div>
-                <label className="goalmap-checkbox">Done
-                    <input type="checkbox" checked={dailys["task1"]["checkbox"]} />
-                    <span className="checkmark"></span>
-                </label>
-                <span className='GoalColor'/>
+            dailys.map((item,i)=>(
+                <><div className={`daily-task ${+checked[i]?"border-"+item.GoalColor:""}`} >
+                    <div className='daily-task-elementsgrid'>
+                        <div>
+                        <div className='daily-task-title'>{item.title}</div>
+                        <div className='task-description'>{item.description}</div>
+                        </div>
+                        <div className='daily-task-buttons'>
+                            <div className='goalmap-checkbox-container'>
+                                <label className="goalmap-checkbox">Done
+                                    <input type="checkbox" onClick={(e)=>{handlecheckedChange(e,i)}}/>
+                                    <span className="checkmark"></span>
+                                </label>
+                            </div>
+                            <button className='daily-task-modify'>modify</button>
+                        </div>
+                    </div>
+                        <span className=""/>
+                        
             </div>
                 </>
             ))
         )
     }
+
+
+    const [filled, setFilled] = useState(0);
+	const [isRunning, setIsRunning] = useState(false);
+
+
+
+    useEffect(()=>{
+        let advancement=0
+        for(let x=0;x<checked.length;x++){
+            if(checked[x]===true){
+                advancement+=100/checked.length
+            }
+        }
+        setFilled(prev=>(prev=advancement))
+    },[checked])
+
   return (
-    <div>
+    <div className='GoalmapPage'>
         <div className='Pagetitle'>Goalmap</div>
 
-        <div className='daily-container'>
 
-            {generatedailys()}
+        <div className="progressbar">
+			  <div style={{
+				  height: "100%",
+				  width: `${filled}%`,
+				  backgroundColor: "#3f387e",
+				  transition:"width 0.5s"
+			  }}></div>
+			  <span className="progressPercent">{ filled }%</span>
+		  </div>
+
+
+
+
+        <div className='daily-container'>
             <div className='todays-task'>today's task
-                <div className='daily-task'>
-                    drink milk
-                    <div className='daily-task-check'>done</div>
-                </div>
-                <div className='daily-task'>
-                    <div className='task-description'>eat cereals</div>
-                    <label className="goalmap-checkbox">Done
-                        <input type="checkbox" />
-                        <span className="checkmark"></span>
-                    </label>
-                    <span className='GoalColor'/>
-                </div>
+                {generatedailys()}
+
             </div>
         </div>
+        <Goalsetting/>
     </div>
   )
 }

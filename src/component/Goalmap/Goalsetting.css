@@ -1,0 +1,40 @@
+.goalsettingpage{
+    background-color: #aba2fe;
+    height: 500px;
+}
+
+.Goalsetting-title{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.Goalsetting-listContainer{
+    font-size: 26px;
+    margin: 20px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.Goalsetting-singlecontainer{
+    margin: 0px 10px;
+    border:2px solid;
+    padding: 10px;
+}
+
+.Goalsetting-singlecontainerTitle{
+    text-decoration: underline;
+}
+
+.Goalsetting-singlecontainerTask{
+    font-size: 16px;
+    text-align: left;
+    text-decoration:unset;
+}
+
+.Goalsetting-singleTask{
+    
+}
