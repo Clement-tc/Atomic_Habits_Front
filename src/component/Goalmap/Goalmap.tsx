@@ -83,7 +83,7 @@ const Goalmap = () => {
                         </div>
                     </div>
                         <span className=""/>
-                    {ModalsOn[i] && <Modal index={i} ModalsOn={ModalsOn} setModalsOn={setModalsOn} ></Modal>}
+                    {ModalsOn[i] && <Modal index={i} ModalsOn={ModalsOn} setModalsOn={setModalsOn} dailys={dailys} setTask={setdailys} task={item} ></Modal>}
                         
             </div>
                 </>

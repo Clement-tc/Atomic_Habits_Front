@@ -121,6 +121,7 @@
 
 .task-description{
     max-width: 40vw;
+    white-space: pre-line
 }
 
 
@@ -189,29 +190,3 @@
 
 /*dally task modal*/
 
-.modifying-modal{
-    background-color: #fff;
-    position:fixed;
-    top:40%;
-    left: 40%;
-    height: 300px;
-    width: 500px;
-    z-index: 100;
-}
-
-.screenblock-modal{
-    position:fixed;
-    top:0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(136, 132, 132, 0.4);
-}
-
-.modifying-modal-close{
-    position : relative;
-    top:60%;
-    left: 50%;
-    height: 30px;
-    width: 50px;
-}
