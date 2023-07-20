@@ -1,0 +1,71 @@
+.modifying-modal{
+    background-color: #fff;
+    position:fixed;
+    top:30%;
+    left: 30%;
+    height: 350px;
+    width: 700px;
+    z-index: 100;
+}
+
+.screenblock-modal{
+    position:fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(136, 132, 132, 0.4);
+}
+
+.modifying-modal-close{
+    position:relative;
+    top:5px;
+    left: 500px;
+    height: 35px;
+    width: 70px;
+}
+
+.modifying-modal-submit{
+    position:relative;
+    top:5px;
+    left: 540px;
+    height: 35px;
+    width: 70px;
+}
+
+.modifying-modalTitle{
+
+}
+
+input[type=text],select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modifying-modalTitleLabel{
+    display:block;
+    font-size: 32px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.modifying-modalTitle{
+    display:block;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.modifying-modalDescription{
+    display:block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 10px;
+    resize:none;
+
+}

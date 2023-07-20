@@ -2,6 +2,7 @@ import React from 'react'
 import {useState,useEffect} from 'react'
 import "./Goalmap.css"
 import Goalsetting from './Goalsetting'
+import Modal from './Modal'
 const Goalmap = () => {
 
     const [dailys,setdailys]= useState(
@@ -51,6 +52,17 @@ const Goalmap = () => {
             setchecked(newarray)
             e.currentTarget.toggleAttribute("after")
         }
+
+    function handleModifyTask(index:number){
+        console.log("modal", index)
+        let newarray=[...ModalsOn]
+
+            newarray[index]=!newarray[index]
+            setModalsOn(newarray)
+    }
+
+    const [ModalsOn,setModalsOn]=useState([false,false,false,false])
+
     function generatedailys(){
         return (
             dailys.map((item,i)=>(
@@ -67,10 +79,11 @@ const Goalmap = () => {
                                     <span className="checkmark"></span>
                                 </label>
                             </div>
-                            <button className='daily-task-modify'>modify</button>
+                            <button className='daily-task-modify' onClick={()=>handleModifyTask(i)}>modify</button>
                         </div>
                     </div>
                         <span className=""/>
+                    {ModalsOn[i] && <Modal index={i} ModalsOn={ModalsOn} setModalsOn={setModalsOn} ></Modal>}
                         
             </div>
                 </>
