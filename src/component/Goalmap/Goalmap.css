@@ -117,7 +117,24 @@
 .daily-task-title{
     font-size: 20px;
     margin-bottom: 7px;
+    display: inline;
+    
 }
+
+.daily-task-date{
+    margin-left: 15px;
+    font-size: 16px;
+    margin-bottom: 7px;
+    display: inline;
+}
+
+.daily-task-priority{
+    margin-left: 15px;
+    font-size: 16px;
+    margin-bottom: 7px;
+    display: inline;
+}
+
 
 .task-description{
     max-width: 40vw;

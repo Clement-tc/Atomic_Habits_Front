@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import {render} from 'react-dom'
 
+
 interface ScorecardFormProps<T> {
   items: T[];
   render:(item:T,i:number)=>ReactNode

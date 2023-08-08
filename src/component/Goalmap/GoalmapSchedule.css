@@ -1,0 +1,18 @@
+.GoalmapSchedule-container{
+    position: absolute;
+    top: 150px;
+    right: 30px;
+    border: solid 1px red;
+    width: 25%;
+    height: 60%;
+}
+
+.GoalmapSchedule-title{
+    font-size: 24px;
+    text-align: center;
+}
+
+.GoalmapSchedule-calendar{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}

@@ -17,8 +17,9 @@ function App() {
 
   return (
     <>
-      <Goalmap/>
+      
         <Routes>
+          <Route path='/Goalmap' element={<Goalmap/>}></Route>
           <Route path='/hey' element={<Scorecard/>}/>
           <Route element={<RequireAuth allowedRoles={[ROLES.User]}/>}>
             <Route path='/Scorecard' element={<Scorecard/>}/>

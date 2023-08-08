@@ -3,6 +3,8 @@ import {useState,useEffect} from 'react'
 import "./Goalmap.css"
 import Goalsetting from './Goalsetting'
 import Modal from './Modal'
+import GoalmapSchedule from './GoalmapSchedule'
+import axios from 'axios'
 const Goalmap = () => {
 
     const [dailys,setdailys]= useState(
@@ -44,6 +46,10 @@ const Goalmap = () => {
 
         const [checked,setchecked]=useState([false,false,false,false])
 
+        useEffect(()=>{
+            axios.get('http://localhost:3000/Goalmap')
+            .then(res=>setdailys(res.data))
+        })
         function handlecheckedChange(e:React.MouseEvent<HTMLDivElement, MouseEvent>,i:number){
             //e.preventDefault()
             let newarray=[...checked]
@@ -70,6 +76,8 @@ const Goalmap = () => {
                     <div className='daily-task-elementsgrid'>
                         <div>
                         <div className='daily-task-title'>{item.title}</div>
+                        <div className='daily-task-date'>{item.date}</div>
+                        <div className='daily-task-priority'>priority:{item.priority}</div>
                         <div className='task-description'>{item.description}</div>
                         </div>
                         <div className='daily-task-buttons'>
@@ -131,6 +139,7 @@ const Goalmap = () => {
 
             </div>
         </div>
+        <GoalmapSchedule/>
         <Goalsetting/>
     </div>
   )
