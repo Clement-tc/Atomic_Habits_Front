@@ -1,37 +1,28 @@
 import React from 'react'
 import {useState} from 'react'
 import "./Modal.css"
+
+type dailysType = {
+    User_id:String,
+    description:String,
+    GoalColor:String,
+    title:String,
+    start:Date,
+    end:Date,
+    priority:Number,
+    checkbox:Boolean
+}
+
 type ModalT={
     index:number;
     setModalsOn:React.Dispatch<React.SetStateAction<boolean[]>>;
     ModalsOn:boolean[];
-    task:taskT
-    setTask:React.Dispatch<React.SetStateAction<{
-        checkbox: boolean;
-        description: string;
-        GoalColor: string;
-        title: string;
-        date: string;
-        priority: number;
-    }[]>>
-    dailys: {
-        checkbox: boolean;
-        description: string;
-        GoalColor: string;
-        title: string;
-        date: string;
-        priority: number;
-    }[]
+    task:dailysType
+    setTask:React.Dispatch<React.SetStateAction<dailysType[]>>
+    dailys:dailysType[]
 }
 
-type taskT={
-    checkbox: boolean;
-    description: string;
-    GoalColor: string;
-    title: string;
-    date: string;
-    priority: number;
-}
+
 
 const Modal = ({index,ModalsOn,setModalsOn,task,setTask,dailys}:ModalT) => {
     const [newTask,setNewTask]=useState(Object.assign(task))
@@ -56,8 +47,8 @@ function HandleInputMofier(value:string,field:string){
     if(field==="goal"){
         setNewTask({...newTask,GoalColor:value})
     }
-    if(field==="date"){
-        setNewTask({...newTask,date:value})
+    if(field==="start"){
+        setNewTask({...newTask,start:value})
     }
     if(field==="priority"){
         setNewTask({...newTask,priority:value})

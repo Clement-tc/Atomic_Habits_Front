@@ -121,8 +121,16 @@
     
 }
 
-.daily-task-date{
+
+
+.daily-task-start{
     margin-left: 15px;
+    font-size: 16px;
+    margin-bottom: 7px;
+    display: inline;
+}
+
+.daily-task-end{
     font-size: 16px;
     margin-bottom: 7px;
     display: inline;
@@ -143,27 +151,19 @@
 
 
 .redGoal{
-    display: block;
-    width: 60%;
-    height: 2px;
+
     background-color: #fd7e70;
 }
 .greenGoal{
-    display: block;
-    width: 60%;
-    height: 2px;
+
     background-color: #70fd7e;
 }
 .yellowGoal{
-    display: block;
-    width: 60%;
-    height: 2px;
+
     background-color: #effd70;
 }
 .blueGoal{
-    display: block;
-    width: 60%;
-    height: 2px;
+
     background-color: #7e70fd;
 }
 

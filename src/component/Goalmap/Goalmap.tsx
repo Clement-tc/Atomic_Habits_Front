@@ -7,49 +7,26 @@ import GoalmapSchedule from './GoalmapSchedule'
 import axios from 'axios'
 const Goalmap = () => {
 
-    const [dailys,setdailys]= useState(
-        [
-            {
-                checkbox:false,
-                description:"eat cereals",
-                GoalColor:"greenGoal",
-                title:"Be healthy",
-                date:"monday 6/01/2045",
-                priority:1
-            },
-            {
-                checkbox:false,
-                description:"do the dishes",
-                GoalColor:"blueGoal",
-                title:"House shore",
-                date:"monday 6/01/2045",
-                priority:5
-            },
-            {
-                checkbox:false,
-                description:"hail the sunsdfqsdfzxeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeesdqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",
-                GoalColor:"yellowGoal",
-                title:"Devote yourself",
-                date:"monday 6/01/2045",
-                priority:10
-            },
-            {
-                checkbox:false,
-                description:"do a little dance",
-                GoalColor:"redGoal",
-                title:"Exercice",
-                date:"monday 6/01/2045",
-                priority:1
-            }
-        ]
-    )
+    type dailysType = {
+        User_id:String,
+        description:String,
+        GoalColor:String,
+        title:String,
+        start:Date,
+        end:Date,
+        priority:Number,
+        checkbox:Boolean
+    }
+    const [dailys,setdailys]= useState<dailysType[]>([])
 
         const [checked,setchecked]=useState([false,false,false,false])
 
         useEffect(()=>{
             axios.get('http://localhost:3000/Goalmap')
-            .then(res=>setdailys(res.data))
-        })
+            .then(res=>{console.log(res.data);setdailys(res.data)})
+        },[])
+
+
         function handlecheckedChange(e:React.MouseEvent<HTMLDivElement, MouseEvent>,i:number){
             //e.preventDefault()
             let newarray=[...checked]
@@ -60,7 +37,6 @@ const Goalmap = () => {
         }
 
     function handleModifyTask(index:number){
-        console.log("modal", index)
         let newarray=[...ModalsOn]
 
             newarray[index]=!newarray[index]
@@ -70,14 +46,17 @@ const Goalmap = () => {
     const [ModalsOn,setModalsOn]=useState([false,false,false,false])
 
     function generatedailys(){
+        
         return (
             dailys.map((item,i)=>(
                 <><div className={`daily-task ${+checked[i]?"border-"+item.GoalColor:""}`} >
                     <div className='daily-task-elementsgrid'>
                         <div>
+
                         <div className='daily-task-title'>{item.title}</div>
-                        <div className='daily-task-date'>{item.date}</div>
-                        <div className='daily-task-priority'>priority:{item.priority}</div>
+                        <div className='daily-task-start'>{new Date(item.start).getHours().toString()}:{new Date(item.start).getMinutes().toString()}/</div>
+                        <div className='daily-task-end'>{new Date(item.end).getHours().toString()}:{new Date(item.end).getMinutes().toString()}</div>
+                        <div className='daily-task-priority'>priority:{item.priority.toString()}</div>
                         <div className='task-description'>{item.description}</div>
                         </div>
                         <div className='daily-task-buttons'>
@@ -107,12 +86,12 @@ const Goalmap = () => {
 
     useEffect(()=>{
         let advancement=0
-        for(let x=0;x<checked.length;x++){
+        for(let x=0;x<dailys.length;x++){
             if(checked[x]===true){
-                advancement+=100/checked.length
+                advancement+=100/dailys.length
             }
         }
-        setFilled(prev=>(prev=advancement))
+        setFilled(prev=>(prev=Math.round(advancement)))
     },[checked])
 
   return (
@@ -139,8 +118,8 @@ const Goalmap = () => {
 
             </div>
         </div>
-        <GoalmapSchedule/>
-        <Goalsetting/>
+        <GoalmapSchedule dailys={dailys}/>
+        {/*<Goalsetting/>*/}
     </div>
   )
 }
