@@ -53,6 +53,12 @@ function HandleInputMofier(value:string,field:string){
     if(field==="priority"){
         setNewTask({...newTask,priority:value})
     }
+    if(field==="start"){
+        setNewTask({...newTask,start:value})
+    }
+    if(field==="end"){
+        setNewTask({...newTask,end:value})
+    }
     console.log(value,newTask)
 }
 
@@ -68,7 +74,16 @@ function handleSubmit(){
         <label className='modifying-modalTitleLabel'>Title</label>
         <input className='modifying-modalTitle' onChange={(e)=>HandleInputMofier(e.target.value,"title")} value={newTask.title}/>
         <label className='modifying-modalDateLabel'>Date</label>
-        <input className='modifying-modalDate' onChange={(e)=>HandleInputMofier(e.target.value,"date")} value={newTask.date}/>
+        <input className='modifying-modalDate' onChange={(e)=>HandleInputMofier(e.target.value,"date")} value={newTask.start}/>
+
+        <label className='modifying-modalStartinghour'>task period :</label>
+        <input className='modifying-modalStartinghour' onChange={(e)=>HandleInputMofier(e.target.value,"start")} value={newTask.start}/>
+        <div className='modifying-modalStartinghourslash'>/</div>
+        <input className='modifying-modalEndinghour' onChange={(e)=>HandleInputMofier(e.target.value,"end")} value={newTask.end}/>
+
+
+
+        <textarea  className='modifying-modalDescription' onChange={(e)=>HandleInputMofier(e.target.value,"description")} rows={5} cols={66}  value={newTask.description} />
 
         <label className='modifying-modalPriorityLabel'>Priority </label>
         <select className='modifying-modalPriority' onChange={(e)=>HandleInputMofier(e.target.value,"priority")} id="country" name="country">
@@ -77,7 +92,7 @@ function handleSubmit(){
             <option value="3">3</option>
         </select>
 
-        <textarea  className='modifying-modalDescription' onChange={(e)=>HandleInputMofier(e.target.value,"description")} rows={5} cols={66}  value={newTask.description} />
+
         <label className='modifying-modalGoalLabel'>goal </label>
         <select className='modifying-modalGoal' onChange={(e)=>HandleInputMofier(e.target.value,"goal")} id="country" name="country">
             <option value="redGoal">{newTask.GoalColor}</option>

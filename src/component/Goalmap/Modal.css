@@ -19,16 +19,14 @@
 
 .modifying-modal-close{
     position:relative;
-    top:5px;
-    left: 400px;
     height: 35px;
     width: 70px;
+    margin-left: 100px;
 }
 
 .modifying-modal-submit{
     position:relative;
-    top:5px;
-    left: 480px;
+    margin-left: 40px;
     height: 35px;
     width: 70px;
 }
@@ -56,18 +54,57 @@ input[type=text],select{
 
 .modifying-modalTitle{
     display:block;
-    font-size: 24px;
+    font-size: 20px;
     margin-top: 5px;
     margin-left: 15px;
+    margin-bottom: 5px;
 }
+
+.modifying-modalDateLabel{
+    display: block;
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+.modifying-modalDate{
+    margin-left: 15px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+}
+
 
 .modifying-modalDescription{
     display:block;
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-left: 15px;
     resize:none;
+    margin-bottom: 5px;
 
+}
+
+.modifying-modalStartinghour{
+    width: 50px;
+}
+
+.modifying-modalStartinghourslash{
+    display: inline;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.modifying-modalEndinghour{
+    width: 50px;
+}
+
+.modifying-modalPriorityLabel{
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+.modifying-modalPriority{
+    margin-left: 15px;
+    margin-bottom: 5px;
 }
 
 .modifying-modalGoalLabel{
@@ -78,11 +115,11 @@ input[type=text],select{
 }
 
 .modifying-modalGoal{
-    display: block;
+    display: inline;
     width: 300px;
     margin-left: 15px;
 }
 
 .modifying-modalPriority{
-    display: inline;
+    display: block;
 }

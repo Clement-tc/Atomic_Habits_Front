@@ -12,7 +12,12 @@
 
     position : relative;
     font-size: 40px;
-    width: 70%;
+
+}
+
+.goalmap-maingrid{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
 }
 
 .daily-task{
@@ -29,7 +34,10 @@
     grid-template-columns: 4fr 1fr;
     word-wrap: break-word;
 }
-
+.daily-container{
+    display: grid;
+    grid-template-rows: 300px;
+}
 .daily-task-buttons{
     display: grid;
     grid-template-rows: 1fr 1fr;

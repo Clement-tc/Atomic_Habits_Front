@@ -111,14 +111,17 @@ const Goalmap = () => {
 
 
 
+        <div className='goalmap-maingrid'>
 
-        <div className='daily-container'>
-            <div className='todays-task'>today's task
-                {generatedailys()}
 
+            <div className='daily-container'>
+                <div className='todays-task'>today's task
+                    {generatedailys()}
+
+                </div>
             </div>
+            <GoalmapSchedule dailys={dailys}/>
         </div>
-        <GoalmapSchedule dailys={dailys}/>
         {/*<Goalsetting/>*/}
     </div>
   )
